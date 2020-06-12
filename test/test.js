@@ -3,6 +3,7 @@
 var expect = require("chai").expect;
 var fastestServerCheck = require("../index");
 var makeNetworkCall = require("../makeNetworkCall");
+var validator = require('../validator');
 
 describe("#successResponse", () => {
   it("should recieve a valid response on finding an online server", async () => {
@@ -51,7 +52,7 @@ describe("#networkCallModule", () => {
 });
 
 describe("#networkCallModule", () => {
-  it("should makeNetworkCall module reject a valid output", async () => {
+  it("should makeNetworkCall module reject a valid output when server is offline or timeout", async () => {
     const url = "http://doesNotExist.boldtech.co";
     try {
       var result = await makeNetworkCall(url);
@@ -59,4 +60,23 @@ describe("#networkCallModule", () => {
       expect(typeof error).equal(typeof -12);
     }
   });
+});
+
+describe("#validaor", () => {
+    it("should validator always retuns a valid error string on incorrect input", async () => {
+        let servers = {};
+        var result = validator(servers);
+        expect(result).to.be.a('string')
+    });
+});
+
+describe("#validaor", () => {
+    it("should validator always retuns an empty error string on correct input", async () => {
+        let servers = [
+            { url: "http://doesNotExist.boldtech.co", priority: 1 },
+            { url: "http://offline.boldtech.co", priority: 2 },
+          ];
+        var result = validator(servers);
+        expect(result).equal("")
+    });
 });
