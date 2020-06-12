@@ -1,0 +1,27 @@
+{
+  "name": "@username/fastest-server-check",
+  "version": "1.0.0",
+  "description": "Node module to find fastest available server among the list given server array",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AamirAlam/fastest-server-check.git"
+  },
+  "author": "aamir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AamirAlam/fastest-server-check/issues"
+  },
+  "homepage": "https://github.com/AamirAlam/fastest-server-check#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}
