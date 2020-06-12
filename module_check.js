@@ -3,7 +3,9 @@
  */
 
 var fastestServerCheck = require('./index');
-
+/**
+ * @description  Sample node script to test module in action locally
+ */
 const check = async () => {
   let servers = [ {url:"http://google.com", priority:4}, {url:"http://doesNotExist.boldtech.co", priority:1},{url:"http://boldtech.co", priority:7},{url:"http://offline.boldtech.co", priority:2},{url:"https://github.com/AamirAlam/fastest-server-check",priority:5}]
   try {
