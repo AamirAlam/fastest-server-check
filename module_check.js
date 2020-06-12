@@ -1,3 +1,7 @@
+/**
+ * Sample to test the module usage locally
+ */
+
 var fastestServerCheck = require('./index');
 
 const check = async () => {
@@ -8,6 +12,5 @@ const check = async () => {
   } catch (error) {
     console.log(error)
   }
-  
 }
 check();

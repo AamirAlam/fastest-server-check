@@ -4,7 +4,7 @@
   "description": "Node module to find fastest available server among the list given server array",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec --timeout 5000"
   },
   "repository": {
     "type": "git",

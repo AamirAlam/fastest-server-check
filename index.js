@@ -1,6 +1,7 @@
 "use strict";
 
 var request = require("request");
+var validator = require('./validator');
 /**
  * Returns lowest priority available server
  * @param {Array} servers
@@ -11,7 +12,7 @@ const makeNetworkCall = async (url) => {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       reject(-99);
-    }, 5000);
+    }, 1000);
 
     request.get(
       {
@@ -36,7 +37,10 @@ const makeNetworkCall = async (url) => {
 module.exports = function (servers) {
   return new Promise(async (resolve, reject) => {
     let serverResults = {};
-
+    const error = validator(servers);
+    if(error !== ""){
+        return reject({ message: error,success:false})
+    }
     await Promise.all(
       servers.map(async (server, index) => {
         try {
@@ -63,7 +67,7 @@ module.exports = function (servers) {
     });
     // if no server get resolved by non negative time
     if (priority === 9999) {
-      return reject({ message: "All servers are offline",success:false,url:"",priority:-1,response_time:-1 });
+      return reject({ message: "All servers are offline",success:false});
     }
     fastest_server.success = true;
     fastest_server.message = "Server found"
