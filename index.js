@@ -1,39 +1,13 @@
 "use strict";
 
-var request = require("request");
+// import other dependent modules
 var validator = require('./validator');
+var makeNetworkCall = require('./makeNetworkCall');
 /**
  * Returns lowest priority available server
  * @param {Array} servers
  * @return {Object}
  */
-
-const makeNetworkCall = async (url) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(function () {
-      reject(-99);
-    }, 1000);
-
-    request.get(
-      {
-        url: url,
-        time: true
-      },
-      function (err, response) {
-        if (err) {
-          //   console.log(err);
-          return reject(-99);
-        }
-        if(response.statusCode >= 200 && response.statusCode <= 299){
-            return resolve(response.elapsedTime);
-        }else{
-            return reject(-99);
-        }
-      }
-    );
-  });
-};
-
 module.exports = function (servers) {
   return new Promise(async (resolve, reject) => {
     let serverResults = {};
