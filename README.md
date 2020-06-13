@@ -5,15 +5,6 @@ Node module to find fastest available server with minimum priority among the lis
 - Find online server with minimum priority from given list of servers
 - Light weight and fast
 - JavaScript based
-## params
-```
-    [ 
-       { url: "http://google.com", priority: 4 }, 
-       { url: "http://doesNotExist.boldtech.co", priority: 1 }, 
-       { url: "http://boldtech.co", priority: 7 }, 
-       { url: "http://offline.boldtech.co", priority: 2 } 
-     ]
-```
 
 # install
 `npm install fastest-server-check`
