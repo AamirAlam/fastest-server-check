@@ -8,7 +8,8 @@ Node module to find fastest available server with minimum priority among the lis
 
 # install
 Run following commands into the module directory to use the module
-```npm install -S
+```
+   npm install -S
    npm install -D
 ```
 
