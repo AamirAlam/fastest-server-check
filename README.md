@@ -46,7 +46,7 @@ check();
 ```
 
 ## Test
-Run tests by following command
+Start unit test of module components by following command
 ```
 npm test
 ```
