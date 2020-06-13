@@ -7,9 +7,12 @@ Node module to find fastest available server with minimum priority among the lis
 - JavaScript based
 
 # install
-`npm install fastest-server-check`
+Run following commands into the module directory to use the module
+```npm install -S
+   npm install -D
+```
 
-# QuickStart
+# Usage
 
 Find fastest server by making following async call
 ```
@@ -41,19 +44,8 @@ const check = async () => {
 check();
 ```
 
-## response
+## Test
+Run tests by following command
 ```
-If any online server found
-{
-  url: 'http://google.com',
-  priority: 4,
-  success: true,
-  message: 'Server found',
-  response_time: 917
-}
-If no server is online
-{
-  message: 'All servers are offline',
-  success: false,
-}
+npm test
 ```
